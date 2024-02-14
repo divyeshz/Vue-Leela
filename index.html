@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+  </head>
+  <body>
+    <div id="app">
+
+      <div v-if="isLoggedIn">User is Logged In</div>
+      <div v-else>User is Not Logged In</div>
+
+      <div><button @click="toggleLogin()">{{ isLoggedIn ? "Logout" : "Login"  }}</button></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Index No</th>
+            <th>Id</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(post, key) in posts" :class="post.title">
+            <td>{{ key }}</td>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
